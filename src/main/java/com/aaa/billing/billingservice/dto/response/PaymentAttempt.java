@@ -9,14 +9,17 @@ public class PaymentAttempt {
     private final double amount;
     private final LocalDateTime paymentDateTime;
     private final PaymentStatus status;
+    private final String notes;
 
     public PaymentAttempt(
-            int transactionId, int policyId, double amount, LocalDateTime paymentDateTime, PaymentStatus status){
+            int transactionId, int policyId, double amount,
+            LocalDateTime paymentDateTime, PaymentStatus status, String notes){
         this.transactionId = transactionId;
         this.policyId = policyId;
         this.amount = amount;
         this.paymentDateTime = paymentDateTime;
         this.status = status;
+        this.notes = notes;
     }
 
     public int getTransactionId() {
@@ -37,5 +40,9 @@ public class PaymentAttempt {
 
     public PaymentStatus getStatus() {
         return status;
+    }
+
+    public String getNotes() {
+        return notes;
     }
 }

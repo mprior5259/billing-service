@@ -1,9 +1,7 @@
 package com.aaa.billing.billingservice.data;
 
 import com.aaa.billing.billingservice.dto.enums.PaymentStatus;
-import com.aaa.billing.billingservice.dto.response.DelinquentPolicy;
-import com.aaa.billing.billingservice.dto.response.PaymentAttempt;
-import com.aaa.billing.billingservice.dto.response.PremiumSchedule;
+import com.aaa.billing.billingservice.dto.response.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -31,13 +29,16 @@ public class MockData {
 
     private static final List<PaymentAttempt> paymentAttempts = List.of(
             new PaymentAttempt(1, 1001, 123.56,
-                    LocalDateTime.of(2026, 2, 29, 9, 30), PaymentStatus.FAILED
+                    LocalDateTime.of(2026, 2, 29, 9, 30), PaymentStatus.FAILED,
+                    "Seed data."
             ),
             new PaymentAttempt(2, 1002, 289.09,
-                    LocalDateTime.of(2026, 3, 1, 14, 15), PaymentStatus.SUCCESS
+                    LocalDateTime.of(2026, 3, 1, 14, 15), PaymentStatus.SUCCESS,
+                    "Seed data."
             ),
             new PaymentAttempt(3, 1003, 1000.23,
-                    LocalDateTime.of(2025, 11, 7, 11, 0), PaymentStatus.FAILED
+                    LocalDateTime.of(2025, 11, 7, 11, 0), PaymentStatus.FAILED,
+                    "Seed data."
             )
     );
 
