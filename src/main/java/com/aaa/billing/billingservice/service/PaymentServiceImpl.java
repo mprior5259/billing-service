@@ -22,7 +22,8 @@ public class PaymentServiceImpl implements PaymentService{
                     payment.getAmount(),
                     LocalDateTime.now(),
                     PaymentStatus.SUCCESS, //hard-set success for retry
-                    payment.getNotes()
+                    payment.getNotes(),
+                    payment.getRetryFrom()
             );
         }
 
@@ -32,7 +33,8 @@ public class PaymentServiceImpl implements PaymentService{
                 payment.getAmount(),
                 LocalDateTime.now(),
                 PaymentStatus.FAILED, //hard-set failed for first payment process
-                payment.getNotes()
+                payment.getNotes(),
+                null
         );
     }
 

@@ -29,16 +29,16 @@ public class MockData {
 
     private static final List<PaymentAttempt> paymentAttempts = List.of(
             new PaymentAttempt(1, 1001, 123.56,
-                    LocalDateTime.of(2026, 2, 29, 9, 30), PaymentStatus.FAILED,
-                    "Seed data."
+                    LocalDateTime.of(2026, 2, 28, 9, 30), PaymentStatus.FAILED,
+                    "Seed data.", null
             ),
             new PaymentAttempt(2, 1002, 289.09,
                     LocalDateTime.of(2026, 3, 1, 14, 15), PaymentStatus.SUCCESS,
-                    "Seed data."
+                    "Seed data.", null
             ),
             new PaymentAttempt(3, 1003, 1000.23,
                     LocalDateTime.of(2025, 11, 7, 11, 0), PaymentStatus.FAILED,
-                    "Seed data."
+                    "Seed data.", null
             )
     );
 

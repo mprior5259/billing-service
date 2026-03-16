@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class BillingServiceImpl implements BillingService{
@@ -109,11 +110,18 @@ public class BillingServiceImpl implements BillingService{
                 return new ServiceResponse<>(false, "Payment is not in a failed state.", null);
             }
 
+            boolean alreadyRetried = paymentAttempts.stream()
+                    .anyMatch(pa -> Objects.equals(pa.getRetryFrom(), transactionId));
+            if (alreadyRetried) {
+                return new ServiceResponse<>(false, "Payment has already been retried.", null);
+            }
+
             PaymentRequest request = new PaymentRequest();
             request.setPolicyId(payment.getPolicyId());
             request.setAmount(payment.getAmount());
             request.setPaymentDateTime(LocalDateTime.now());
             request.setNotes("Payment retry from transactionId: " + transactionId);
+            request.setRetryFrom(transactionId);
 
             PaymentAttempt retryAttempt = paymentService.processPayment(request, true);
 

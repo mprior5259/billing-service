@@ -7,6 +7,7 @@ public class PaymentRequest {
     private double amount;
     private LocalDateTime paymentDateTime;
     private String notes;
+    private Integer retryFrom;
 
     public PaymentRequest(){}
 
@@ -26,6 +27,10 @@ public class PaymentRequest {
         return notes;
     }
 
+    public Integer getRetryFrom() {
+        return retryFrom;
+    }
+
     public void setPolicyId(int policyId) {
         this.policyId = policyId;
     }
@@ -40,5 +45,9 @@ public class PaymentRequest {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public void setRetryFrom(Integer retryFrom) {
+        this.retryFrom = retryFrom;
     }
 }
