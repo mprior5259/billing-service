@@ -74,9 +74,6 @@ public class BillingServiceImpl implements BillingService{
             if (payment.getAmount() <= 0) {
                 return new ServiceResponse<>(false, "Invalid payment amount.", null);
             }
-            if (payment.getNotes() == null || payment.getNotes().isEmpty()) {
-                return new ServiceResponse<>(false, "Notes are required.", null);
-            }
 
             //handle payment date
             payment.setPaymentDateTime(LocalDateTime.now());

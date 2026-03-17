@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "6b910a8c-0a86-4ddd-8f42-b769b619c71b",
+		"name": "BillingService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "53226225"
+	},
+	"item": [
+		{
+			"name": "GetPremiumSchedule",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}{{port}}/api/billing/schedule/1001",
+					"host": [
+						"{{baseUrl}}{{port}}"
+					],
+					"path": [
+						"api",
+						"billing",
+						"schedule",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDelinquentPolicies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}{{port}}/api/billing/delinquencies",
+					"host": [
+						"{{baseUrl}}{{port}}"
+					],
+					"path": [
+						"api",
+						"billing",
+						"delinquencies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostPaymentAttempt",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"policyId\": 1001,\r\n    \"amount\": 82.56,\r\n    \"notes\": \"Payment submitted by Matt\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}{{port}}/api/billing/payment",
+					"host": [
+						"{{baseUrl}}{{port}}"
+					],
+					"path": [
+						"api",
+						"billing",
+						"payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetryPaymentAttempt",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}{{port}}/api/billing/retry/1001",
+					"host": [
+						"{{baseUrl}}{{port}}"
+					],
+					"path": [
+						"api",
+						"billing",
+						"retry",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
